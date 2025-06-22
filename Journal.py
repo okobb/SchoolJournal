@@ -17,7 +17,6 @@ def build_journal (records):
             class_journal[student_name].append(student_grade)
         else:
             class_journal[student_name].append(student_grade)
-    print("\n")
 
 build_journal(records)
 
@@ -29,8 +28,8 @@ def print_journal(journal):
         print (f"Student name: {student_name}")
         print (f"Student grades: {student_grades}")
         average = round(sum(student_grades)/len(student_grades),2)
-        print (f"Student average: {average}")
-    print("\n")
+        print (f"Student average: {average}\n")
+
 
 print_journal(class_journal)
 
@@ -40,7 +39,7 @@ print_journal(class_journal)
 highest_average = 0
 highest_grade = 0
 highest_student = ""
-best_performance = 0
+best_performance = 100
 best_student = ""
 not_passing = []
 total_grades = 0
@@ -98,4 +97,4 @@ else:
     print(f"The students that got at least one grade below 70 are {not_passing}")
 
 print(f"The total number of grades in this class are {total_grades}")
-print(f"The overall class average is {overall_average}")
+print(f"The overall class average is {overall_average}\n")

@@ -8,7 +8,7 @@ class_journal = {}
 
 #Function to Fill the journal whenever necessary.
 
-def BuildJournal (records):
+def build_journal (records):
     for student in records:
         student_name = student[0] 
         student_grade = student[1] 
@@ -17,6 +17,16 @@ def BuildJournal (records):
             class_journal[student_name].append(student_grade)
         else:
             class_journal[student_name].append(student_grade)
-    print(class_journal)
 
-BuildJournal(records)
+build_journal(records)
+
+def print_journal(journal):
+    for student in journal:
+        print (f"Student name: {student}")
+        print (f"Student grades: {journal[student]}")
+        average = round(sum(journal[student])/len(journal[student]),2)
+        print (f"Student average: {average}")
+
+
+
+print_journal(class_journal)

@@ -86,15 +86,16 @@ for student in class_journal:
 
 overall_average = overall_average / len(class_journal)
 
-print(f"The student who got the highest grade is {highest_student}")
-print(f"The student who got the most consistent performance is {best_student}")
+with open("Journal.txt", "w") as file:
+    file.write(f"The student who got the highest grade is {highest_student}\n")
+    file.write(f"The student who got the most consistent performance is {best_student}\n")
+    
+    if(len(not_passing) == 0):
+        file.write("No students have failed!\n")
+    elif(len(not_passing) == 1):
+        file.write(f"The student that got at least one grade below 70 is {not_passing}\n")
+    else:
+        file.write(f"The students that got at least one grade below 70 are {not_passing}\n")
 
-if(len(not_passing) == 0):
-    print("No students have failed!")
-elif(len(not_passing) == 1):
-    print(f"The student that got at least one grade below 70 is {not_passing}")
-else:
-    print(f"The students that got at least one grade below 70 are {not_passing}")
-
-print(f"The total number of grades in this class are {total_grades}")
-print(f"The overall class average is {overall_average}\n")
+    file.write(f"The total number of grades in this class are {total_grades}\n")
+    file.write(f"The overall class average is {overall_average}\n")

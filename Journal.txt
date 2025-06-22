@@ -1,0 +1,5 @@
+The student who got the highest grade is Jana
+The student who got the most consistent performance is Layla
+The student that got at least one grade below 70 is ['Ziad']
+The total number of grades in this class are 12
+The overall class average is 83.25

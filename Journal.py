@@ -33,21 +33,22 @@ def print_journal(journal):
 
 print_journal(class_journal)
 
-#Answering the questions:
 
-#Writing a variable for each question:
-highest_average = 0
-highest_grade = 0
-highest_student = ""
-best_performance = 100
-best_student = ""
-not_passing = []
-total_grades = 0
-overall_average = 0
 
 def deep_analysis(journal):
-    
+    #Answering the questions:
 
+    #Writing a variable for each question:
+    highest_average = 0
+    highest_grade = 0
+    highest_student = ""
+    best_performance = 100
+    best_student = ""
+    not_passing = []
+    total_grades = 0
+    overall_average = 0
+    sum_grades = 0
+    
     for student in class_journal:
         student_name = student
         student_grades = class_journal[student]
@@ -55,13 +56,16 @@ def deep_analysis(journal):
         student_min = student_grades[0]
         student_max = student_grades[0]
         
+        #getting the sum of grades for the average
+        
+        sum_grades += sum(student_grades)
+        
+        #Getting total grade count
+        
+        total_grades += len(student_grades)
+
         for grade in student_grades:
-            #Count the grades for each student
-            
-            total_grades += 1
-            
             #Checking for a grade below 70
-            
             if(grade < 70 and student_name not in not_passing):
                 not_passing.append(student_name)
             #Find the min and max
@@ -87,7 +91,8 @@ def deep_analysis(journal):
         
         overall_average += student_average
 
-    overall_average = overall_average / len(class_journal)
+    overall_average = round(sum_grades / total_grades,2)
+    return highest_student,best_student,not_passing,total_grades,overall_average
 
 def create_file():
     with open("Journal.txt", "w") as file:
@@ -103,4 +108,16 @@ def create_file():
 
         file.write(f"The total number of grades in this class are {total_grades}\n")
         file.write(f"The overall class average is {overall_average}\n")
+        
+highest_student,best_student,not_passing,total_grades,overall_average  = deep_analysis(class_journal)
+create_file()
+
+
+        
+new_grades = [["Jana", 99], ["Ziad", 78], ["Layla", 84]]
+build_journal(new_grades)
+print_journal(class_journal)
+highest_student,best_student,not_passing,total_grades,overall_average  = deep_analysis(class_journal)
+create_file()
+
     

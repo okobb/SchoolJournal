@@ -45,3 +45,44 @@ best_student = ""
 not_passing = []
 total_grades = 0
 overall_average = 0
+
+for student in class_journal:
+    student_name = student
+    student_grades = class_journal[student]
+    student_average = round(sum(student_grades)/len(student_grades),2)
+    student_min = student_grades[0]
+    student_max = student_grades[0]
+    
+    for grade in student_grades:
+        #Count the grades for each student
+        
+        total_grades += 1
+        
+        #Checking for a grade below 70
+        
+        if(grade < 70 and student_name not in not_passing):
+            not_passing.append(student_name)
+        #Find the min and max
+        if(grade > student_max):
+            student_max = grade
+        else:
+            student_min = grade
+    
+    #Find the performance of each student
+    student_perfomance = student_max - student_min
+    
+    #Validating the answer for each question
+    if(student_max > highest_grade):
+        highest_grade = student_max
+        highest_student = student_name
+        
+    if(student_average > highest_average):
+        highest_average = student_average
+        
+    if(student_perfomance < best_performance):
+        best_performance = student_perfomance
+        best_student = student_name
+    
+    overall_average += student_average
+
+overall_average = overall_average / len(class_journal)

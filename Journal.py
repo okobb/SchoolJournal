@@ -102,7 +102,7 @@ def create_file():
         if(len(not_passing) == 0):
             file.write("No students have failed!\n")
         elif(len(not_passing) == 1):
-            file.write(f"The student that got at least one grade below 70 is {not_passing}\n")
+            file.write(f"The student that got at least one grade below 70 is {not_passing[0]}\n")
         else:
             file.write(f"The students that got at least one grade below 70 are {not_passing}\n")
 
